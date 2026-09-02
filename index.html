@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>禾捷電子科技</title>
+<meta name="description" content="禾捷電子科技有限公司｜弱電系統與智慧化設備的規劃、施工、整合與維護">
+<link rel="canonical" href="https://harjet-technology.com/">
+<meta property="og:title" content="禾捷電子科技有限公司">
+<meta property="og:description" content="弱電系統與智慧化設備的規劃、施工、整合與維護">
+<meta property="og:url" content="https://harjet-technology.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ink: #16232E;
+    --paper: #F5F6F3;
+    --paper-2: #EDEFEA;
+    --mist: #DDE2DC;
+    --copper: #C0742F;
+    --copper-deep: #9A5A22;
+    --slate: #5C6873;
+    --white: #FFFFFF;
+    --serif: "Noto Serif TC", "PMingLiU", "Songti TC", serif;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    --max: 1180px;
+    --gutter: clamp(20px, 5vw, 64px);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.25; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--copper); }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245, 246, 243, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--mist);
+  }
+  .site-header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px; gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 34px; height: 34px; flex: none;
+    display: grid; place-items: center;
+  }
+  .brand-name { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: 0.04em; }
+  .brand-en { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--slate); display: block; line-height: 1.2; margin-top: 2px; }
+  .nav { display: flex; gap: 28px; font-size: 14.5px; font-weight: 500; }
+  .nav a { padding: 6px 0; border-bottom: 2px solid transparent; transition: border-color .2s; }
+  .nav a:hover { border-bottom-color: var(--copper); }
+  .nav-cta {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.06em;
+    padding: 9px 16px; border: 1px solid var(--ink); border-radius: 2px;
+    transition: background .2s, color .2s;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--paper); }
+  .menu-btn { display: none; background: none; border: 1px solid var(--mist); border-radius: 2px; padding: 8px 10px; font-family: var(--mono); font-size: 12px; cursor: pointer; color: var(--ink); }
+  @media (max-width: 860px) {
+    .nav, .nav-cta { display: none; }
+    .menu-btn { display: inline-block; }
+    .site-header.open .nav {
+      display: flex; flex-direction: column; gap: 0;
+      position: absolute; left: 0; right: 0; top: 68px;
+      background: var(--paper); border-bottom: 1px solid var(--mist);
+      padding: 8px var(--gutter) 16px;
+    }
+    .site-header.open .nav a { padding: 12px 0; border-bottom: 1px solid var(--mist); }
+  }
+
+  /* ---------- hero ---------- */
+  .hero { padding: clamp(56px, 9vw, 112px) 0 clamp(40px, 6vw, 72px); border-bottom: 1px solid var(--mist); }
+  .hero .wrap {
+    display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(32px, 6vw, 80px); align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 5.2vw, 60px);
+    margin-top: 22px;
+    letter-spacing: 0.01em;
+  }
+  .hero h1 em { font-style: normal; color: var(--copper); }
+  .hero .lede {
+    margin-top: 24px; max-width: 34em; font-size: 17px; color: var(--slate);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 22px; border-radius: 2px; font-weight: 500; font-size: 15px;
+    border: 1px solid var(--ink); transition: transform .15s, background .2s, color .2s;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--copper); border-color: var(--copper); }
+  .btn-ghost { background: transparent; color: var(--ink); }
+  .btn-ghost:hover { background: var(--paper-2); }
+  .btn svg { width: 16px; height: 16px; }
+  .trace-box {
+    position: relative; aspect-ratio: 5 / 4; min-height: 240px;
+    border: 1px solid var(--mist); background: var(--ink); border-radius: 2px; overflow: hidden;
+  }
+  .trace-box canvas { width: 100%; height: 100%; display: block; }
+  .trace-label {
+    position: absolute; left: 14px; bottom: 12px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: rgba(245,246,243,.55);
+  }
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .trace-box { aspect-ratio: 16 / 9; }
+  }
+
+  /* ---------- scope strip ---------- */
+  .scope { border-bottom: 1px solid var(--mist); background: var(--paper-2); }
+  .scope .wrap {
+    display: flex; flex-wrap: wrap; align-items: center;
+    padding-top: 18px; padding-bottom: 18px; gap: 8px 0;
+  }
+  .scope .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--slate); margin-right: 24px; }
+  .scope ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 0; }
+  .scope li { font-size: 14.5px; font-weight: 500; padding-right: 22px; margin-right: 22px; border-right: 1px solid var(--mist); white-space: nowrap; }
+  .scope li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+
+  /* ---------- sections ---------- */
+  .section { padding: clamp(64px, 8vw, 104px) 0; border-bottom: 1px solid var(--mist); }
+  .section-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(32px, 6vw, 80px); align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
+  .section-head h2 { font-size: clamp(28px, 3.4vw, 40px); margin-top: 16px; }
+  .section-head .intro { color: var(--slate); max-width: 36em; font-size: 16.5px; }
+  @media (max-width: 860px) { .section-head { grid-template-columns: 1fr; } }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 80px); }
+  .about-copy p + p { margin-top: 18px; }
+  .about-copy { font-size: 16.5px; max-width: 36em; }
+  .values { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--ink); }
+  .values li { padding: 20px 0; border-bottom: 1px solid var(--mist); display: grid; grid-template-columns: 96px 1fr; gap: 16px; }
+  .values .k { font-family: var(--serif); font-weight: 700; font-size: 18px; }
+  .values .v { color: var(--slate); font-size: 15px; }
+  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+
+  /* services */
+  .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--mist); border: 1px solid var(--mist); }
+  .service { background: var(--paper); padding: 28px 26px 30px; display: flex; flex-direction: column; gap: 14px; min-height: 100%; }
+  .service h3 { font-size: 20px; }
+  .service .code { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; color: var(--slate); }
+  .service p { color: var(--slate); font-size: 15px; flex: 1; }
+  .service .spec { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .service .spec li { font-family: var(--mono); font-size: 11.5px; padding: 4px 8px; border: 1px solid var(--mist); border-radius: 2px; color: var(--ink); background: var(--white); }
+  @media (max-width: 960px) { .services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .services { grid-template-columns: 1fr; } }
+
+  /* process */
+  .process { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+  .process li { padding: 22px 20px 26px 0; border-right: 1px solid var(--mist); margin-right: 20px; }
+  .process li:last-child { border-right: 0; margin-right: 0; }
+  .process .num { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--copper); }
+  .process h3 { font-size: 19px; margin-top: 10px; }
+  .process p { font-size: 14.5px; color: var(--slate); margin-top: 10px; }
+  .process .out { font-family: var(--mono); font-size: 11.5px; color: var(--ink); margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--mist); line-height: 1.6; }
+  @media (max-width: 1000px) { .process { grid-template-columns: repeat(2, minmax(0, 1fr)); } .process li { border-right: 0; border-bottom: 1px solid var(--mist); margin-right: 0; } }
+  @media (max-width: 560px) { .process { grid-template-columns: 1fr; } }
+
+  /* projects */
+  .notice {
+    font-family: var(--mono); font-size: 12.5px; color: var(--copper-deep);
+    background: #F8EFE4; border: 1px dashed var(--copper); padding: 10px 14px; border-radius: 2px;
+    margin-bottom: 20px; display: inline-block;
+  }
+  .table-wrap { overflow-x: auto; border-top: 1px solid var(--ink); }
+  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  th, td { text-align: left; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--mist); vertical-align: top; font-size: 15px; }
+  th { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; color: var(--slate); font-weight: 500; text-transform: uppercase; }
+  td.yr { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.nm { font-weight: 500; }
+  td .ph { color: var(--slate); }
+
+  /* contact */
+  .contact { background: var(--ink); color: var(--paper); border-bottom: 0; }
+  .contact .eyebrow { color: #E0A46E; }
+  .contact .eyebrow::before { background: #E0A46E; }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 80px); }
+  .contact h2 { font-size: clamp(28px, 3.4vw, 40px); margin-top: 16px; }
+  .contact .lede { color: rgba(245,246,243,.72); margin-top: 18px; max-width: 32em; }
+  .contact .btn-primary { background: var(--copper); border-color: var(--copper); color: var(--paper); margin-top: 30px; }
+  .contact .btn-primary:hover { background: #D6883F; border-color: #D6883F; }
+  .contact-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(245,246,243,.25); }
+  .contact-list li { display: grid; grid-template-columns: 88px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(245,246,243,.15); }
+  .contact-list .k { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: rgba(245,246,243,.6); padding-top: 4px; }
+  .contact-list .v { font-size: 16px; }
+  .contact-list .v a { border-bottom: 1px solid rgba(245,246,243,.35); }
+  .contact-list .v a:hover { border-bottom-color: var(--copper); }
+  .todo { font-family: var(--mono); font-size: 12px; color: #E0A46E; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  /* footer */
+  .site-footer { background: #0F1920; color: rgba(245,246,243,.6); font-size: 13px; }
+  .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding-top: 22px; padding-bottom: 22px; }
+  .site-footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="禾捷電子科技 首頁">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 34 34" width="34" height="34" fill="none">
+          <rect x="1" y="1" width="32" height="32" rx="2" stroke="#16232E" stroke-width="1.5"/>
+          <path d="M8 24 L8 14 L14 14 L14 20 L20 20 L20 10 L26 10" stroke="#C0742F" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+          <circle cx="8" cy="24" r="2.2" fill="#C0742F"/>
+          <circle cx="26" cy="10" r="2.2" fill="#C0742F"/>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">禾捷電子科技</span>
+        <span class="brand-en">HARJET ELECTRONIC TECHNOLOGY</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主選單">
+      <a href="#about">關於禾捷</a>
+      <a href="#services">服務項目</a>
+      <a href="#process">承攬流程</a>
+      <a href="#projects">工程實績</a>
+      <a href="#contact">聯絡我們</a>
+    </nav>
+    <a class="nav-cta" href="#contact">洽詢工程</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" onclick="toggleMenu(this)">MENU</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">弱電系統 ・ 智慧化整合 ・ 公共工程</span>
+      <h1>把每一條線路，<br>接成<em>可靠</em>的系統。</h1>
+      <p class="lede">禾捷電子科技專注於弱電系統與智慧化設備的規劃、施工與整合，為機關、學校與商業建築提供從設計送審、現場施工到驗收維護的一站式服務。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">洽詢工程需求
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#services">查看服務項目</a>
+      </div>
+    </div>
+    <div class="trace-box" aria-hidden="true">
+      <canvas id="trace"></canvas>
+      <span class="trace-label">HARJET · SYSTEM INTEGRATION</span>
+    </div>
+  </div>
+</section>
+
+<div class="scope">
+  <div class="wrap">
+    <span class="lbl">SCOPE</span>
+    <ul>
+      <li>監視監控系統</li>
+      <li>門禁與安全系統</li>
+      <li>網路與結構化佈線</li>
+      <li>廣播與對講系統</li>
+      <li>停車管理系統</li>
+      <li>機房與設備整合</li>
+    </ul>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">關於禾捷</span>
+        <h2>規範施工，如期履約。</h2>
+      </div>
+      <p class="intro">工程的價值不在設備清單，而在每一個接點是否按規範完成、每一份文件是否經得起查驗。這是禾捷做事的方式。</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>禾捷電子科技有限公司是一家專注於弱電與智慧化系統的工程公司。我們承攬監視監控、門禁安全、網路通訊、廣播對講與停車管理等系統的規劃、施工與整合，服務對象涵蓋政府機關、學校、醫療院所與商業大樓。</p>
+        <p>我們熟悉公共工程的採購流程與品質管理制度——從施工計畫與品質計畫送審、材料設備送審、自主檢查表、到竣工圖說與驗收作業，禾捷都能依契約與施工規範逐項完成，讓業主與監造單位放心。</p>
+        <p>系統完工只是開始。禾捷提供保固期內的維護與保固期後的保養服務，讓系統在整個生命週期內穩定運作。</p>
+      </div>
+      <ul class="values">
+        <li><span class="k">誠信履約</span><span class="v">承諾的期程與規格，一項不少地交付。</span></li>
+        <li><span class="k">規範施工</span><span class="v">依施工規範與圖說施作，文件與現場一致，經得起查驗。</span></li>
+        <li><span class="k">長期維護</span><span class="v">保固與保養一併承接，系統有人負責到底。</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">服務項目</span>
+        <h2>從線路到系統，一手承攬。</h2>
+      </div>
+      <p class="intro">各系統可單獨承攬，也可整合為一套智慧化方案。以下為主要服務範圍與常用規格。</p>
+    </div>
+    <div class="services">
+      <article class="service">
+        <span class="code">CCTV / VIDEO</span>
+        <h3>監視監控系統</h3>
+        <p>校園、廠區、停車場與公共空間的攝影機佈建、錄影主機與影像管理平台建置，含 AI 影像辨識整合。</p>
+        <ul class="spec"><li>IP CAM</li><li>NVR / VMS</li><li>PoE</li><li>IP66</li></ul>
+      </article>
+      <article class="service">
+        <span class="code">ACCESS / SECURITY</span>
+        <h3>門禁與安全系統</h3>
+        <p>門禁讀卡、電鎖、人臉辨識、防盜與緊急求救系統，可與消防、電梯及監控系統連動。</p>
+        <ul class="spec"><li>RFID</li><li>人臉辨識</li><li>電磁鎖</li><li>連動控制</li></ul>
+      </article>
+      <article class="service">
+        <span class="code">NETWORK / CABLING</span>
+        <h3>網路與結構化佈線</h3>
+        <p>有線與無線網路規劃、結構化佈線、光纖熔接與測試報告，符合 TIA/EIA 標準並提供完整標示。</p>
+        <ul class="spec"><li>Cat.6 / 6A</li><li>光纖 SM / MM</li><li>Wi-Fi 6</li><li>Fluke 測試</li></ul>
+      </article>
+      <article class="service">
+        <span class="code">PA / INTERCOM</span>
+        <h3>廣播與對講系統</h3>
+        <p>校園與大樓廣播、緊急廣播、網路廣播及對講系統，含分區控制與定時排程。</p>
+        <ul class="spec"><li>IP 廣播</li><li>分區控制</li><li>緊急廣播</li><li>對講主機</li></ul>
+      </article>
+      <article class="service">
+        <span class="code">PARKING</span>
+        <h3>停車管理系統</h3>
+        <p>車牌辨識、柵欄機、車位偵測與導引、繳費整合，適用機關、商場與社區停車場。</p>
+        <ul class="spec"><li>車牌辨識</li><li>柵欄機</li><li>車位導引</li><li>繳費整合</li></ul>
+      </article>
+      <article class="service">
+        <span class="code">ROOM / INTEGRATION</span>
+        <h3>機房與設備整合</h3>
+        <p>機櫃、配線架、UPS 與環境監控建置，並將各子系統整合至中央管理平台，統一監看與告警。</p>
+        <ul class="spec"><li>機櫃配線</li><li>UPS</li><li>環境監控</li><li>中央平台</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">承攬流程</span>
+        <h2>每一步都有文件，每一步都可查驗。</h2>
+      </div>
+      <p class="intro">依公共工程慣例執行，每個階段皆有對應的交付文件，讓業主與監造單位隨時掌握進度與品質。</p>
+    </div>
+    <ol class="process">
+      <li>
+        <span class="num">STEP 01</span>
+        <h3>需求評估</h3>
+        <p>現場勘查、盤點既有設備與管路，釐清契約與規範要求。</p>
+        <div class="out">交付：勘查紀錄、需求確認單</div>
+      </li>
+      <li>
+        <span class="num">STEP 02</span>
+        <h3>規劃設計</h3>
+        <p>系統架構、設備選型與圖說繪製，完成施工計畫與品質計畫。</p>
+        <div class="out">交付：施工計畫、品質計畫、設備送審資料</div>
+      </li>
+      <li>
+        <span class="num">STEP 03</span>
+        <h3>施工安裝</h3>
+        <p>依核定圖說施作，落實自主檢查與材料設備進場檢驗。</p>
+        <div class="out">交付：自主檢查表、施工日誌、進場檢驗紀錄</div>
+      </li>
+      <li>
+        <span class="num">STEP 04</span>
+        <h3>測試驗收</h3>
+        <p>系統功能測試、線路測試報告與教育訓練，配合辦理驗收。</p>
+        <div class="out">交付：測試報告、竣工圖說、操作手冊</div>
+      </li>
+      <li>
+        <span class="num">STEP 05</span>
+        <h3>維護保養</h3>
+        <p>保固期內定期巡檢與故障排除，並提供保固後的保養合約。</p>
+        <div class="out">交付：巡檢紀錄、維修紀錄</div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">工程實績</span>
+        <h2>近年承攬案件</h2>
+      </div>
+      <p class="intro">以下依年度列出主要承攬案件與系統內容。</p>
+    </div>
+    <div class="notice">草稿版面示意：下列為欄位範例，正式上線前請提供實際案件名稱與內容</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>年度</th><th>工程名稱</th><th>業主／機關</th><th>系統內容</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="yr">—</td><td class="nm"><span class="ph">（待填）例：○○國小校園監視系統更新工程</span></td><td><span class="ph">（待填）</span></td><td><span class="ph">監視監控、網路佈線</span></td></tr>
+          <tr><td class="yr">—</td><td class="nm"><span class="ph">（待填）例：○○機關辦公大樓門禁與廣播系統工程</span></td><td><span class="ph">（待填）</span></td><td><span class="ph">門禁安全、廣播對講</span></td></tr>
+          <tr><td class="yr">—</td><td class="nm"><span class="ph">（待填）例：○○停車場車牌辨識與導引系統</span></td><td><span class="ph">（待填）</span></td><td><span class="ph">停車管理、機房整合</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow">聯絡我們</span>
+        <h2>有工程需求？<br>先聊聊現場狀況。</h2>
+        <p class="lede">不論是新建工程、既有系統更新，或是保養維護，歡迎提供圖說或需求說明，我們會依現場狀況提出建議與報價。</p>
+        <a class="btn btn-primary" href="mailto:harjet.technology@gmail.com?subject=%E5%B7%A5%E7%A8%8B%E6%B4%BD%E8%A9%A2">寄信洽詢
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+        </a>
+      </div>
+      <ul class="contact-list">
+        <li><span class="k">EMAIL</span><span class="v"><a href="mailto:harjet.technology@gmail.com">harjet.technology@gmail.com</a></span></li>
+        <li><span class="k">TEL</span><span class="v"><span class="todo">【待填：公司電話】</span></span></li>
+        <li><span class="k">ADDRESS</span><span class="v"><span class="todo">【待填：公司地址】</span></span></li>
+        <li><span class="k">HOURS</span><span class="v">週一至週五 09:00–18:00</span></li>
+        <li><span class="k">TAX ID</span><span class="v"><span class="todo">【待填：統一編號】</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> 禾捷電子科技有限公司 Harjet Electronic Technology Co., Ltd.</span>
+    <span class="mono">TAIWAN · 弱電系統 · 智慧化整合</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function toggleMenu(btn) {
+    var h = document.querySelector('.site-header');
+    var open = h.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  document.querySelectorAll('.nav a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.querySelector('.site-header').classList.remove('open');
+    });
+  });
+
+  // PCB trace drawing: orthogonal / 45° routes with pads, drawn once (static).
+  (function () {
+    var cv = document.getElementById('trace');
+    if (!cv) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function draw() {
+      var box = cv.parentElement.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var W = Math.max(1, Math.floor(box.width)), H = Math.max(1, Math.floor(box.height));
+      cv.width = W * dpr; cv.height = H * dpr;
+      var ctx = cv.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+
+      // grid
+      var g = 22;
+      ctx.strokeStyle = 'rgba(245,246,243,0.06)';
+      ctx.lineWidth = 1;
+      for (var x = g; x < W; x += g) { ctx.beginPath(); ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); ctx.stroke(); }
+      for (var y = g; y < H; y += g) { ctx.beginPath(); ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); ctx.stroke(); }
+
+      var cols = Math.floor(W / g), rows = Math.floor(H / g);
+      var occ = {};
+      function key(c, r) { return c + ',' + r; }
+      var seed = 7;
+      function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+
+      var traces = [];
+      // start cells in shuffled order so traces spread across the board
+      var cells = [];
+      for (var cc = 1; cc < cols; cc++) for (var rr = 1; rr < rows; rr++) cells.push([cc, rr]);
+      for (var si = cells.length - 1; si > 0; si--) { var sj = Math.floor(rnd() * (si + 1)); var tmp = cells[si]; cells[si] = cells[sj]; cells[sj] = tmp; }
+      var want = Math.max(14, Math.floor(cols * rows / 9));
+      for (var i = 0; i < cells.length && traces.length < want; i++) {
+        var c = cells[i][0], r = cells[i][1];
+        if (occ[key(c, r)]) continue;
+        // keep one cell of clearance around a new start
+        var clear = true;
+        for (var ac = -1; ac <= 1 && clear; ac++) for (var ar = -1; ar <= 1; ar++) if (occ[key(c + ac, r + ar)]) { clear = false; break; }
+        if (!clear) continue;
+        var pts = [[c, r]];
+        var used = [key(c, r)];
+        var dir = Math.floor(rnd() * 4); // 0 right 1 down 2 left 3 up
+        var steps = 2 + Math.floor(rnd() * 3);
+        for (var s = 0; s < steps; s++) {
+          var len = 2 + Math.floor(rnd() * 6);
+          var diag = rnd() < 0.4;
+          for (var k = 0; k < len; k++) {
+            var dc = dir === 0 ? 1 : dir === 2 ? -1 : 0;
+            var dr = dir === 1 ? 1 : dir === 3 ? -1 : 0;
+            if (diag) { if (dc === 0) dc = rnd() < .5 ? 1 : -1; else dr = rnd() < .5 ? 1 : -1; diag = false; }
+            var nc = c + dc, nr = r + dr;
+            if (nc < 1 || nr < 1 || nc > cols - 1 || nr > rows - 1 || occ[key(nc, nr)]) break;
+            c = nc; r = nr; occ[key(c, r)] = 1; used.push(key(c, r)); pts.push([c, r]);
+          }
+          dir = (dir + (rnd() < .5 ? 1 : 3)) % 4;
+        }
+        if (pts.length >= 4) { occ[key(pts[0][0], pts[0][1])] = 1; traces.push(pts); }
+        else { used.forEach(function (u) { delete occ[u]; }); }
+      }
+
+      var copper = '#C0742F';
+      ctx.lineCap = 'square'; ctx.lineJoin = 'miter';
+
+      function drawTrace(pts, t) {
+        var total = pts.length - 1;
+        var upto = Math.max(1, Math.floor(total * t));
+        ctx.strokeStyle = copper; ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(pts[0][0] * g, pts[0][1] * g);
+        for (var i = 1; i <= upto; i++) ctx.lineTo(pts[i][0] * g, pts[i][1] * g);
+        ctx.stroke();
+        // pads
+        ctx.fillStyle = '#16232E';
+        ctx.strokeStyle = copper; ctx.lineWidth = 2;
+        var ends = t >= 1 ? [pts[0], pts[total]] : [pts[0]];
+        ends.forEach(function (p) {
+          ctx.beginPath(); ctx.arc(p[0] * g, p[1] * g, 4.2, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        });
+      }
+
+      if (reduce) {
+        traces.forEach(function (p) { drawTrace(p, 1); });
+        return;
+      }
+      var start = null, dur = 1400;
+      function frame(ts) {
+        if (!start) start = ts;
+        var t = Math.min(1, (ts - start) / dur);
+        ctx.clearRect(0, 0, W, H);
+        ctx.strokeStyle = 'rgba(245,246,243,0.06)'; ctx.lineWidth = 1;
+        for (var x = g; x < W; x += g) { ctx.beginPath(); ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); ctx.stroke(); }
+        for (var y = g; y < H; y += g) { ctx.beginPath(); ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); ctx.stroke(); }
+        traces.forEach(function (p, i) {
+          var delay = (i / traces.length) * 0.5;
+          var lt = Math.max(0, Math.min(1, (t - delay) / 0.5));
+          if (lt > 0) drawTrace(p, lt);
+        });
+        if (t < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    draw();
+    var to;
+    window.addEventListener('resize', function () { clearTimeout(to); to = setTimeout(draw, 150); });
+  })();
+</script>
+</body>
+</html>

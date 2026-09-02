@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://harjet-technology.com/sitemap.xml
