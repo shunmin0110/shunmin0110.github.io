@@ -14,7 +14,7 @@
 - 色：深藍 #0F2A3C、墨藍 #1F3D52、灰藍 #A8BCC9、淺灰 #D8DAD6（估讀，待以 AI 檔取樣校正）；青色 #5CC8E0 只用於 AI 辨識相關元素
 - 字體：英文 Goldman（Google Fonts）、中文 Noto Sans TC、標籤 IBM Plex Mono
 - 品牌概念「和・捷・悅」；標語「創新 迅捷 和悅」
-- Logo：盾牌 HJ 字標（原始 .ai 在使用者 Google Drive「240205-墨翰設計-禾捷電子科技有限公司-LOGO-OK.ai」，69MB）。**目前頁首為 Goldman 文字標，待換成正式 Logo。**
+- Logo：盾牌 HJ 字標（原始 .ai 在使用者 Google Drive「240205-墨翰設計-禾捷電子科技有限公司-LOGO-OK.ai」，69MB）。**目前頁首／favicon／攝影機機身用的是依 VI 重繪的 `assets/logo-mark.svg`（近似版），待以正式 .ai 匯出的 SVG 取代。**
 
 ## 內容原則
 - 公司定位：AI 影像辨識 × 智慧交通 × 專案管理（PCM）的智慧資通訊整合商，主攻智慧交通
@@ -23,9 +23,9 @@
 - 繁體中文（台灣用語）
 
 ## 待辦
-- [ ] 換正式盾牌 Logo（頁首、頁尾、favicon、og:image）
+- [ ] 以正式 Logo 檔取代 `assets/logo-mark.svg`／`logo-mark-white.svg`，並重做攝影機機身合成（`assets/hj-873ai.png`）
 - [ ] 攝影機正式產品圖（使用者已有 HarJET 標版本）、現場照片、團體照、AI 辨識截圖
-- [ ] 電話、地址、統編（about.html 聯絡區）
+- [x] 電話 06-3127016、地址 臺南市永康區大灣路942巷71弄139號、統編 93523931（已填入 about.html 與各頁 footer）
 - [ ] 工程實績實際案件
 - [ ] Google Search Console 登記、提交 sitemap.xml
 - [ ] VI 色碼校正
