@@ -4,3 +4,6 @@
 *.eps
 .DS_Store
 Thumbs.db
+
+# LINE 匯出的人像原圖：未確認肖像同意前不進版本庫（網站只用轉好的 webp）
+assets/LINE_ALBUM_*.jpg

@@ -29,7 +29,8 @@
 ## 待辦
 - [x] 以正式 Logo 檔取代 `assets/logo-mark*.svg`，並用 VI 橫式組合重做攝影機機身合成（`assets/hj-873ai.png`，底圖為 commit 1a399ef 的未加標原始算圖，依機身側面平面做仿射貼合）
 - [ ] 攝影機正式產品圖（使用者已有 HarJET 標版本）、現場照片、AI 辨識截圖
-- [ ] 團體照：`assets/LINE_ALBUM_*.jpg` 共 4 張已放在本機但**未 commit、未上頁面**（含員工與孩童人像，上線前需使用者確認肖像同意）
+- [x] 團體照：2024 員工旅遊合照已放入 about.html 公司簡介右欄（`assets/team-2024.webp`，1477×1108，WebP q76 約 210KB；原圖只有 1477px 寬，未達 1600px 故不放大）
+- 另一張員工旅遊照使用者說先不用；LINE 原始 jpg 留在本機但 `.gitignore` 已排除 —— **這類人像照未經使用者確認肖像同意前不要 commit**（進 repo 等於公開在 GitHub Pages）
 - [x] 電話 06-3127016、地址 臺南市永康區大灣路942巷71弄139號、統編 93523931（已填入 about.html 與各頁 footer）
 - [ ] 工程實績實際案件
 - [ ] Google Search Console 登記、提交 sitemap.xml

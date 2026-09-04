@@ -220,6 +220,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .about-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 80px); }
 .about-copy { font-size: 16.5px; max-width: 36em; }
 .about-copy p + p { margin-top: 18px; }
+.about-side { display: grid; gap: clamp(28px, 4vw, 40px); align-content: start; }
+.team-photo { margin: 0; }  /* 蓋掉 figure 預設的 1em 40px */
+.team-photo img { width: 100%; height: auto; border-radius: 3px; }
+.team-photo figcaption {
+  margin-top: 12px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted);
+}
 .values { border-top: 1px solid var(--ink); }
 .values li { padding: 20px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: start; }
 .values .k { font-family: var(--display); font-size: 30px; line-height: 1; color: var(--navy); }
