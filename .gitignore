@@ -1,0 +1,6 @@
+# 原始設計檔太大，不進版本庫（網站只用轉出的 svg/png）
+*.ai
+*.psd
+*.eps
+.DS_Store
+Thumbs.db
