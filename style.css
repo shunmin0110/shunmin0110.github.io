@@ -222,7 +222,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 .about-copy p + p { margin-top: 18px; }
 .about-side { display: grid; gap: clamp(28px, 4vw, 40px); align-content: start; }
 .team-photo { margin: 0; }  /* 蓋掉 figure 預設的 1em 40px */
-.team-photo img { width: 100%; height: auto; border-radius: 3px; }
+.team-photo img {
+  width: 100%; height: auto;
+  /* 柔邊：兩道漸層遮罩取交集，四邊淡出到頁面底色。左右淡出幅度較小，避免吃到邊緣的人 */
+  --feather-x: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+  --feather-y: linear-gradient(180deg, transparent 0, #000 9%, #000 90%, transparent 100%);
+  -webkit-mask-image: var(--feather-x), var(--feather-y);
+  -webkit-mask-composite: source-in;          /* 舊版 Safari */
+  mask-image: var(--feather-x), var(--feather-y);
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
+}
 .team-photo figcaption {
   margin-top: 12px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .14em;
   text-transform: uppercase; color: var(--muted);
