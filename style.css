@@ -85,10 +85,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .nav { display: flex; gap: 26px; font-size: 14.5px; font-weight: 500; }
 .nav a { padding: 6px 0; border-bottom: 2px solid transparent; transition: border-color .2s, color .2s; color: rgba(255,255,255,.82); }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--white); border-bottom-color: var(--signal); }
+.nav a { white-space: nowrap; }
+@media (max-width: 1280px) { .brand-zh { display: none; } }  /* 主選單加了登入入口，中等寬度時收起中文公司名讓出空間 */
 .nav-cta { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; padding: 9px 16px; border: 1px solid var(--signal); color: var(--signal); border-radius: 3px; transition: background .2s, color .2s; white-space: nowrap; }
 .nav-cta:hover { background: var(--signal); color: var(--navy); }
 .menu-btn { display: none; background: none; border: 1px solid var(--line-dark); border-radius: 3px; padding: 8px 10px; font-family: var(--mono); font-size: 12px; cursor: pointer; color: var(--white); }
-@media (max-width: 960px) {
+@media (max-width: 1040px) {
   .brand-zh { display: none; }
   .nav, .nav-cta { display: none; }
   .menu-btn { display: inline-block; }
