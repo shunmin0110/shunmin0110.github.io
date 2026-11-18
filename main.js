@@ -56,6 +56,26 @@
       track.classList.remove('dragging'); go(Math.abs(dx) > w * 0.12 ? base + (dx < 0 ? 1 : -1) : base);
     });
     window.addEventListener('resize', function () { track.scrollLeft = cur * track.clientWidth; });
+    // 自動輪播：data-autoplay="秒數"，時間到換下一張，最後一張之後回到第一張。
+    // 不換的時候：影片播放中、滑鼠停在上面、正在拖曳、剛操作過（先停 12 秒）、這一塊不在畫面內、分頁在背景、系統設定為減少動態效果。
+    var sec = parseFloat(root.getAttribute('data-autoplay')) || 0, hold = 0, hover = false, seen = true;
+    function playing() { var v = slides[cur].querySelector('video'); return !!v && !v.paused && !v.ended; }
+    function wait(ms) { hold = Date.now() + ms; }
+    if (sec > 0 && !reduce && slides.length > 1) {
+      root.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
+      root.addEventListener('pointerleave', function () { hover = false; wait(sec * 1000); });
+      ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(function (ev) { root.addEventListener(ev, function () { wait(12000); }, { passive: true }); });
+      root.querySelectorAll('video').forEach(function (v) {
+        v.addEventListener('ended', function () { wait(1500); });          // 影片播完，稍等一下就換下一張
+        v.addEventListener('pause', function () { if (!v.ended) wait(sec * 1000); });
+      });
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { seen = e[0].isIntersecting; if (seen) wait(sec * 1000); }, { threshold: 0.5 }).observe(root);
+      wait(sec * 1000);
+      setInterval(function () {
+        if (document.hidden || !seen || hover || down || playing() || Date.now() < hold) return;
+        wait(sec * 1000); go((cur + 1) % slides.length);
+      }, 250);
+    }
     sync();
   });
 
