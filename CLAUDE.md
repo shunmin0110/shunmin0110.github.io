@@ -7,7 +7,7 @@
 - 網址：https://harjet-technology.com（網域註冊在 Wix，DNS 在 Wix 設 A/CNAME 指向 GitHub Pages）
 - 發布：push 到 `main` 即自動上線（約 1 分鐘）。`CNAME` 檔綁網域，勿刪。
 - 純靜態：HTML + `style.css` + `main.js`，無框架、無建置步驟。
-- 頁面：`index.html` 首頁、`traffic.html` 智慧交通（主攻）、`products.html` HJ-873AI 產品頁、`about.html` 關於＋聯絡
+- 頁面：`index.html` 首頁、`traffic.html` 智慧交通（主攻）、`products.html` HJ-873AI 產品頁、`about.html` 關於＋聯絡、`maintenance.html` 設備維護保養管理軟體（2026-11-18 新增）
 - 首頁主視覺：`main.js` 內 Canvas 動畫「AI 車流辨識」；尊重 prefers-reduced-motion。
 
 ## 品牌規範（VI）
@@ -25,6 +25,13 @@
 - HJ-873AI 為合作原廠產品，網站以禾捷品牌呈現，**不提原廠名稱**
 - 不捏造案例、數字、認證；缺的資料用【待填】標示
 - 繁體中文（台灣用語）
+
+## 設備維護保養管理軟體頁（maintenance.html，2026-11-18）
+- 對外名稱一律「設備維護保養管理軟體」（使用者 2026-11-18 指定）。主選單項目「維護保養軟體」、登入連結「設備維護保養管理軟體登入入口」（協力廠商的教育訓練簡報、組員操作手冊寫的就是這個連結文字，改名要連文件一起改）。
+- 文案與圖取自產品 DM（原始檔在公司內部的專案資料夾，不在這個 repo）；圖在 `assets/emm/*.webp`，全部是示範站的虛構資料與示意圖。
+- **這個 repo 是公開的**：不放機關資料、現場照片、主機與技術細節；AI 的部分只寫功能，不寫供應商與技術細節。頁面上已註明「畫面為示範資料」。
+- 主選單多了一項、登入連結變長，所以 `style.css` 把收成 MENU 按鈕的寬度改為 1180px、收起中文公司名的寬度改為 1480px；再加選單項目前先量各種寬度會不會擠出去。
+- 樣式用 `.sw-` 開頭的類別（在 `style.css` 最後一段），首頁在 HJ-873AI 下面有一段預告。
 
 ## 待辦
 - [x] 以正式 Logo 檔取代 `assets/logo-mark*.svg`，並用 VI 橫式組合重做攝影機機身合成（`assets/hj-873ai.png`，底圖為 commit 1a399ef 的未加標原始算圖，依機身側面平面做仿射貼合）
