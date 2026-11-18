@@ -25,6 +25,18 @@
     items.forEach(function (el) { io.observe(el); });
   }
 
+  // 影片上的大播放鈕：按了才開始播（影片檔也是這時候才下載）；播放中隱藏，暫停或播完再出現
+  document.querySelectorAll('.sw-video').forEach(function (box) {
+    var v = box.querySelector('video'); if (!v) return;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'sw-play'; b.setAttribute('aria-label', '播放宣傳影片');
+    b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17L20.5 12z" fill="currentColor"/></svg>';
+    b.addEventListener('click', function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+    v.addEventListener('play', function () { box.classList.add('playing'); });
+    v.addEventListener('pause', function () { box.classList.remove('playing'); });
+    v.addEventListener('ended', function () { box.classList.remove('playing'); });
+    box.appendChild(b);
+  });
+
   // media slider（可滑動的圖片＋影片）
   document.querySelectorAll('[data-slider]').forEach(function (root) {
     var track = root.querySelector('.sw-track'), dots = root.querySelector('.sw-dots');
