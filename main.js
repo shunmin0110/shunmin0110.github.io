@@ -25,6 +25,40 @@
     items.forEach(function (el) { io.observe(el); });
   }
 
+  // media slider（可滑動的圖片＋影片）
+  document.querySelectorAll('[data-slider]').forEach(function (root) {
+    var track = root.querySelector('.sw-track'), dots = root.querySelector('.sw-dots');
+    var prev = root.querySelector('.sw-prev'), next = root.querySelector('.sw-next');
+    if (!track) return;
+    var slides = [].slice.call(track.children), cur = 0;
+    function go(i) { i = Math.max(0, Math.min(slides.length - 1, i)); track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' }); }
+    function sync() {
+      var i = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / Math.max(1, track.clientWidth))));
+      if (i !== cur) { var v = slides[cur].querySelector('video'); if (v && !v.paused) v.pause(); cur = i; }   // 滑走就暫停影片
+      if (dots) [].forEach.call(dots.children, function (d, k) { d.setAttribute('aria-current', k === cur ? 'true' : 'false'); });
+      if (prev) prev.disabled = cur === 0; if (next) next.disabled = cur === slides.length - 1;
+    }
+    if (dots) slides.forEach(function (s, i) {
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', '第 ' + (i + 1) + ' 張，共 ' + slides.length + ' 張');
+      b.addEventListener('click', function () { go(i); }); dots.appendChild(b);
+    });
+    if (prev) prev.addEventListener('click', function () { go(cur - 1); });
+    if (next) next.addEventListener('click', function () { go(cur + 1); });
+    var raf = 0; track.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; sync(); }); });
+    track.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); } });
+    // 滑鼠拖曳（觸控螢幕用瀏覽器原本的滑動；影片上不拖，免得搶走播放列）
+    var down = null;
+    track.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' || e.button !== 0 || e.target.closest('video')) return; down = { x: e.clientX, left: track.scrollLeft, moved: false }; });
+    window.addEventListener('pointermove', function (e) { if (!down) return; var dx = e.clientX - down.x; if (!down.moved && Math.abs(dx) < 6) return; down.moved = true; track.classList.add('dragging'); track.scrollLeft = down.left - dx; });
+    window.addEventListener('pointerup', function (e) {
+      if (!down) return; var d = down; down = null; if (!d.moved) return;
+      var dx = e.clientX - d.x, w = track.clientWidth, base = Math.round(d.left / w);
+      track.classList.remove('dragging'); go(Math.abs(dx) > w * 0.12 ? base + (dx < 0 ? 1 : -1) : base);
+    });
+    window.addEventListener('resize', function () { track.scrollLeft = cur * track.clientWidth; });
+    sync();
+  });
+
   // ---- hero: AI traffic vision ----
   var cv = document.getElementById('road');
   if (!cv) return;

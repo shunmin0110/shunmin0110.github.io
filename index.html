@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=1151118b">
 </head>
 <body>
 
@@ -156,10 +156,27 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="product-band">
-      <figure class="sw-hero-img reveal">
-        <img src="assets/emm/hero.webp" alt="設備維護保養管理軟體的審核畫面與手機拍照回報畫面" width="1300" height="842" loading="lazy">
-      </figure>
+    <div class="product-band sw-band">
+      <div class="sw-media reveal" data-slider>
+        <div class="sw-slider">
+          <div class="sw-track" tabindex="0" aria-label="設備維護保養管理軟體的宣傳影片與畫面，可左右滑動">
+            <figure class="sw-slide sw-slide-video">
+              <video controls preload="none" playsinline poster="assets/emm/promo-poster.webp" width="1280" height="720" aria-label="設備維護保養管理軟體 30 秒宣傳影片">
+                <source src="assets/emm/promo-v2.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <figure class="sw-slide"><img src="assets/emm/hero.webp" alt="管理端的審核畫面與手機上的現場回報畫面" width="1300" height="842" loading="lazy"><figcaption>管理端審核畫面與現場回報 App</figcaption></figure>
+            <figure class="sw-slide"><img src="assets/emm/app-camera.webp" alt="手機拍照畫面：橫拍，右下角顯示日期時間與 GPS" width="900" height="428" loading="lazy"><figcaption>手機拍照：橫拍，自動加上日期時間與 GPS</figcaption></figure>
+            <figure class="sw-slide"><img src="assets/emm/web-review.webp" alt="審核畫面：照片與拍攝資訊一頁看完" width="1280" height="872" loading="lazy"><figcaption>線上審核：照片與拍攝資訊一頁看完</figcaption></figure>
+            <figure class="sw-slide"><img src="assets/emm/dlg-ai-review.webp" alt="AI 自動審核照片的結果" width="1100" height="876" loading="lazy"><figcaption>AI 先把照片看過一遍（回覆內容為示範範例）</figcaption></figure>
+            <figure class="sw-slide"><img src="assets/emm/web-sched.webp" alt="自動排程：各月的排程與是否已開單" width="1280" height="872" loading="lazy"><figcaption>自動排程：各月的排程與是否已開單</figcaption></figure>
+          </div>
+          <button class="sw-arrow sw-prev" type="button" aria-label="上一張"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.5 5.5 8 10 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></button>
+          <button class="sw-arrow sw-next" type="button" aria-label="下一張"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></button>
+        </div>
+        <div class="sw-dots" aria-label="切換圖片"></div>
+        <p class="sw-demo">30 秒宣傳影片與系統畫面，可左右滑動　·　畫面為示範資料</p>
+      </div>
       <div class="reveal">
         <span class="eyebrow">自有軟體</span>
         <h2 class="sw-name" style="margin-top:14px;color:var(--navy)">設備維護保養<br>管理軟體<small style="color:var(--muted)">現場回報 · 線上審核 · 紀錄留存</small></h2>
@@ -236,6 +253,6 @@
   <div class="bottom"><div class="wrap"><span>© <span id="yr">2026</span> 禾捷電子科技有限公司</span><span class="mono">TAIWAN · SMART TRANSPORTATION · AI VISION</span></div></div>
 </footer>
 
-<script src="main.js"></script>
+<script src="main.js?v=1151118b"></script>
 </body>
 </html>
